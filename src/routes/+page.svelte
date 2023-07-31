@@ -1,3 +1,7 @@
-<h1>Hello Timoni</h1>
-<p>because you are my world</p>
+<script>
+    let name = "World"
+    let src = "favicon.png"
+</script>
 
+<h1>hello {name}</h1>
+<img src={src} alt="svelte logo">
