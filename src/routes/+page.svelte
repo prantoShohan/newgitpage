@@ -1,7 +1,52 @@
 <script>
-    let name = "World"
-    let src = "favicon.png"
+    export const prerender = true;
+    let filename = 1;
+    let scroll;
+
+    $: name = filename+'.png'
+
+
+    /**
+     * @param {number} direction
+     */
+    function changeImage(direction){
+        if(direction == 1){
+            if(filename == 16){
+                filename = 0;
+            }
+            filename += 1;
+        }else{
+            if(filename == 1){
+                filename = 16;
+            }
+            filename -= 1;
+        }
+
+    }
+
+    if (typeof window !== "undefined") {
+            window.addEventListener("wheel", event => {
+                const delta = Math.sign(event.deltaY);
+                scroll = delta;
+                changeImage(delta);
+            });
+    }
+    
 </script>
 
-<h1>hello {name}</h1>
-<img src={src} alt="svelte logo">
+<p>{name}</p>
+<div>
+    <img src = {'/image/'+name} alt = 'leaf'/>
+</div>
+
+
+
+<style>
+    img{
+        max-width: 30%;
+        max-height: 30%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+</style>
