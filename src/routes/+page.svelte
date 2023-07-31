@@ -6,9 +6,6 @@
     $: name = filename+'.png'
 
 
-    /**
-     * @param {number} direction
-     */
     function changeImage(direction){
         if(direction == 1){
             if(filename == 16){
@@ -36,7 +33,7 @@
 
 <p>{name}</p>
 <div>
-    <img src = {'/image/'+name} alt = 'leaf'/>
+    <img src = {name} alt = 'leaf'/>
 </div>
 
 
